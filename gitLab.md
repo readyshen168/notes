@@ -1,5 +1,11 @@
 # gitLab git 的实验
 
+## 分支定理
+
+1. 分支指向某个提交 commit, Git 必须知道它的所有父提交 [参考](https://yuanbao.tencent.com/chat/naQivTmsDa/6f7e44d7-8243-49bb-a0cf-c3a419cf46d9)
+   这就意味着：
+   1. 从不同分支合并的提交， 即便只推送了某个分支到远程仓库，该分支所指向的提交的所有父提交都会被推送到远程仓库；
+
 ## git config
 
 - 配置文件位置： ~/.gitconfig
