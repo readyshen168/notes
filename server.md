@@ -75,3 +75,9 @@
    source ~/.zshrc
 
    ```
+
+### 每天一个 git 快捷命令
+
+1. gc: git commit -v | v 是 verbose 的简写，表示更详细的信息
+2. gc!: git commit -v --amend | 修改最近一次提交，如果没有 v，则不会显示 diff 内容
+3. gpv: git push -v | 本地分支推送到远程仓库，显示详细信息
