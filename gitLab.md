@@ -17,12 +17,15 @@ ubuntu 上 git 网络连接问题：GnuTLS recv error (-110): The TLS connection
 - 撤销上面的配置： git config --global --unset http.sslBackend
 - git ls-remote <URL 地址> 验证
 
-## 远程仓库改名、URL
+## 远程仓库相关操作
+
+查看当前的远程仓库信息: `git remote-v`
 
 - 改名:`git remote rename origin github`
 - 修改 URL: `git remote set-url <name> <newurl>`
 - 移除远程仓库: `git remote rm <name>`
-- 查看当前的远程仓库信息: `git remote-v`
+- 从 https 变为 ssh 连接:`git remote set-url <name> git@github.com:用户名/仓库名.git`
+  [关于设置 ssh 连接 github](https://yuanbao.tencent.com/chat/naQivTmsDa/23da6bdd-6505-4792-8768-e6fe45af359c)
 
 ## git checkout commitA 分离 HEAD 状态
 
