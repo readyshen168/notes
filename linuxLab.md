@@ -2,7 +2,9 @@
 
 ## sed 用例
 
-### 对 git 仓库 git cherry-pick， 结果、错误信息、提示都输出到 gitLab.md 的第 10 行之后
+待完成的分支实验：在 git-lab 中的分支上做 git 实验，结果输出到 notes 中的分支上，由 learn 来记录分支关系，最终目标：用 SHELL 来控制流程。
+
+### git-lab 仓库 git cherry-pick， 结果、错误信息、提示都输出到 gitLab.md 的第 10 行之后
 
 1. 变量扩展`'10a\'`, 直接写 `'10a $(git cherry-pick HEAD@{7})'`会让 sed 试图插入字面字符串 "$(git log)"，而非命令执行结果：
 
