@@ -82,3 +82,4 @@
 2. gc!: git commit -v --amend | 修改最近一次提交，如果没有 v，则不会显示 diff 内容
 3. gca: git commit add -v | 把已跟踪的文件的修改合并 add、commit 一次性提交
 4. gpv: git push -v | 本地分支推送到远程仓库，显示详细信息
+5. glols --all: git log --graph --pretty=‘%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset’ --stat | 美化展示的 git log
