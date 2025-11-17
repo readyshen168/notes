@@ -4,7 +4,11 @@
 
 1. 分支指向某个提交 commit, Git 必须知道它的所有父提交 [参考](https://yuanbao.tencent.com/chat/naQivTmsDa/6f7e44d7-8243-49bb-a0cf-c3a419cf46d9)
    这就意味着：
+
    1. 从不同分支合并的提交， 即便只推送了某个分支到远程仓库，该分支所指向的提交的所有父提交都会被推送到远程仓库；
+
+2. rebase 的时候，是可以舍弃掉当前 commit 的
+   1. 解决了冲突后，rebase 过来的分支完全可以覆盖当前 commit
 
 ## git config
 
@@ -16,6 +20,21 @@ ubuntu 上 git 网络连接问题：GnuTLS recv error (-110): The TLS connection
 - git config --global http.sslBackend "gnutls"
 - 撤销上面的配置： git config --global --unset http.sslBackend
 - git ls-remote <URL 地址> 验证
+
+## git rm
+
+oh-my-zsh 简写：grm
+
+.gitignore 添加 notes/，但不起效，证明 Git 已经跟踪过 notes,需要从 Git 中删除 notes:
+
+```bash
+ # 从Git索引中删除notes目录(保留本地文件)
+git rm -r --cached notes # 简写： grmc -r notes
+ # 提交删除操作
+git commit -m "停止跟踪notes目录"
+
+ # 现在.gitignore会生效
+```
 
 ## 远程仓库相关操作
 
@@ -53,7 +72,7 @@ ubuntu 上 git 网络连接问题：GnuTLS recv error (-110): The TLS connection
 
 ## git rebase
 
-1. 分支变基合并：demo1 分支有 3 个 commit, commitA、B、C，demo2 分支有 2 个 commit, commita、 b, 其中 a 与 b 是同一个 commit，是 demo1 和 demo2 从主分支 main 上分出时的共同节点，此时在 demo2 上 git rebase demo1, demo1 的哪个 commit 会变基？
+1. 分支变基合并：demo1 分支有 3 个 commit, commitA、B、C，demo2 分支有 2 个 commit, commita、 b, 此时在 demo2 上 git rebase demo1, demo1 的哪个 commit 会变基？
 
    [实验分支](../gitLab/test?branch=git#rebase#demo1)
    [实验分支](../gitLab/test?branch=git#rebase#demo2)
