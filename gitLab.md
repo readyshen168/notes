@@ -8,7 +8,38 @@
    1. 从不同分支合并的提交， 即便只推送了某个分支到远程仓库，该分支所指向的提交的所有父提交都会被推送到远程仓库；
 
 2. rebase 的时候，是可以舍弃掉当前 commit 的
+
    1. 解决了冲突后，rebase 过来的分支完全可以覆盖当前 commit
+
+3. 分支跟踪：
+
+   ```bash
+      # 查看本地分支
+      git branch
+
+      # 查看所有远程(包括远程)
+      git branch -a
+
+      # 查看远程分支
+      git branch -r
+
+      # 查看所有分支的跟踪关系
+      git branch -vv
+
+      # 设置上游分支（精细到远程分支的完整方法）
+      git branch --set-upstream-to=github/branch1 branch1
+
+      # git push -u origin branch1 自动创建branch1的上游分支origin/branch1
+
+   ```
+
+   1. 一次性推送所有本地分支到远程（无论是否有上游跟踪分支）： `git push --all github`
+   2. 单分支推送： `git checkout branch1; git push github branch1`
+   3. 不切换分支，直接推送指定分支： `git push github branch1:branch1`
+   4. 设定上游跟踪分支：`git push --set-upstream github branch1`
+   5. 在其他主机上随时可以 fetch 到新支的信息，获取所有远程分支信息： `git fetch github`
+   6. 在其他主机上切换到特定分支： `git checkout -b branch1 github/branch1`
+      简化写法： `git checkout branch1` git 会自动把 github/branch1 设置为 branch1 的上游跟踪分支
 
 ## git config
 
